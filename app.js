@@ -16,10 +16,6 @@ const catalogModel = require('./models/products')
 
 
 app.get('/', async (req, res) => {
-  return res.status(200).send('<a href="/dataProducts">/dataProducts</a>')
-})
-
-app.get('/dataProducts', async (req, res) => {
   return res.status(200).json({
     catalog: await catalogModel.find({})
   })
