@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 require('dotenv') 
 
-const dbUser = process.env.DB_USER
-const dbpass = process.env.DB_PASSWORD
+const DB_USER = process.env.DB_USER
+const DB_PASSWORD = process.env.DB_PASSWORD
 
 async function conn(){
   try {
-    await mongoose.connect(`mongodb+srv://${dbUser}:${dbpass}@site-institucional---om.6t8a4f3.mongodb.net/database---ÔMEGA`)
+    await mongoose.connect(`mongodb+srv://${DB_USER}:${DB_PASSWORD}@site-institucional---om.6t8a4f3.mongodb.net/database---ÔMEGA`)
     console.log('banco no ar')
   } catch (error) {
     console.log(`erro: ${error}`)
