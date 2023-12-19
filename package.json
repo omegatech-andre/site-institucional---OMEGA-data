@@ -2,7 +2,7 @@
   "name": "site-institucional---omega-data",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "engines": {
     "node": "18.x"
   },
