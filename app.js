@@ -1,14 +1,6 @@
-//EXPRESS
 const express = require('express')
 const cors = require('cors')
-
-const PORT = 8080
-
-
 const app = express()
-require('dotenv').config();
-
-
 app.use(express.json())
 app.use(cors())
 
@@ -35,6 +27,6 @@ app.get('/dataProducts', async (req, res) => {
 
 
 //GETWAY
-app.listen(PORT, function () {
+app.listen(8080, function () {
   console.log('servidor no ar')
 })
