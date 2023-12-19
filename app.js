@@ -8,7 +8,7 @@ app.use(cors())
 //DATA CONNECTION
 const conn = require('./data/conn')
 conn()
-app.use('/public', express.static('public'));
+app.use(express.static('public'));
 
 
 //MODELS
@@ -16,6 +16,10 @@ const catalogModel = require('./models/products')
 
 
 app.get('/', async (req, res) => {
+  return res.status(200).send('<a href="/dataProducts">/dataProducts</a>')
+})
+
+app.get('/dataProducts', async (req, res) => {
   return res.status(200).json({
     catalog: await catalogModel.find({})
   })
