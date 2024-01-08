@@ -6,6 +6,7 @@ const favicon = require('serve-favicon')
 const app = express()
 app.use(express.json())
 app.use(cors())
+require('dotenv').config()
 
 
 // Favicon
@@ -38,6 +39,4 @@ app.get('/dataProducts', async (req, res) => {
 
 
 //GETWAY
-app.listen(8080, function () {
-  console.log('servidor no ar')
-})
+app.listen(8080);
