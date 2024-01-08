@@ -21,14 +21,13 @@ app.use(express.static('public'));
 const catalogModel = require('./models/products')
 
 
-app.get('/', async (req, res) => {
-  fs.readFile('./public/index.html', 'utf8', (err, data) => {
-    if(err){
-      console.log(err)
-      return
-    }
-    res.send(data)
-  })
+app.get('/', (req, res) => {
+  try {
+    const data = fs.readFileSync('./public/index.html', 'utf8');
+    res.send(data);
+  } catch (error) {
+    console.log(error)
+  }
 })
 
 app.get('/dataProducts', async (req, res) => {
