@@ -23,12 +23,7 @@ const catalogModel = require('./models/products')
 
 
 app.get('/', (req, res) => {
-  try {
-    const data = fs.readFileSync('./public/index.html', 'utf8');
-    res.send(data);
-  } catch (error) {
-    console.log(error)
-  }
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
 
 app.get('/dataProducts', async (req, res) => {
