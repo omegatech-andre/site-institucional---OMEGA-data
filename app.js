@@ -6,6 +6,7 @@ const favicon = require('serve-favicon')
 const app = express()
 app.use(express.json())
 app.use(cors())
+require('dotenv').config()
 
 
 // Favicon
@@ -22,12 +23,7 @@ const catalogModel = require('./models/products')
 
 
 app.get('/', (req, res) => {
-  try {
-    const data = fs.readFileSync('./public/index.html', 'utf8');
-    res.send(data);
-  } catch (error) {
-    console.log(error)
-  }
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 })
 
 app.get('/dataProducts', async (req, res) => {
@@ -38,6 +34,4 @@ app.get('/dataProducts', async (req, res) => {
 
 
 //GETWAY
-app.listen(8080, function () {
-  console.log('servidor no ar')
-})
+app.listen(8080);
