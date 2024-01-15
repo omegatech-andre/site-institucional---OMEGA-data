@@ -23,13 +23,17 @@ const catalogModel = require('./models/products')
 
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
 app.get('/dataProducts', async (req, res) => {
-  return res.status(200).json({
-    catalog: await catalogModel.find({})
-  })
+  try {
+    return res.status(200).json({
+      catalog: await catalogModel.find({})
+    })
+  } catch (error) {
+    return res.status(500).sendFile(path.join(__dirname, 'public', 'error.html'))
+  }
 })
 
 
