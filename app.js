@@ -22,8 +22,18 @@ app.use(express.static('public'));
 const catalogModel = require('./models/products')
 
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'public', 'index.html'))
+// })
+
+app.get('/', (_req, res) => {
+  res.status(200).json({
+    project: 'site-institucional-omega-data',
+    description: "Backend API for Omega Screen services",
+    owner: 'Ômega Screen Indústria',
+    builder: 'https://github.com/oxdrtech',
+    statusCode: 200,
+  });
 })
 
 app.get('/dataProducts', async (req, res) => {
