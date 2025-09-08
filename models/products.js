@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema({
   image: [String],
   colors: [colorSchema],
   sizes: [String],
-  fispq: String,
+  fds: String,
   boletim: String
 })
 
