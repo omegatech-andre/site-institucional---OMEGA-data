@@ -1,6 +1,5 @@
 const express = require('express')
 const cors = require('cors')
-const fs = require('fs')
 const path = require('path')
 const favicon = require('serve-favicon')
 const app = express()
@@ -36,7 +35,7 @@ app.get('/', (_req, res) => {
   });
 })
 
-app.get('/dataProducts', async (req, res) => {
+app.get('/dataProducts', async (_req, res) => {
   try {
     return res.status(200).json({
       catalog: await catalogModel.find({})
